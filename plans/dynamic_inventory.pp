@@ -17,7 +17,7 @@
 plan examples::dynamic_inventory (
   TargetSpec $targets,
   String $task,
-) {
+ 
   # Install python
   $result = run_task('package', $targets,
                      'name' => 'python',
@@ -26,9 +26,9 @@ plan examples::dynamic_inventory (
 
   # Let users know which targets failed python install
   # This is an example of a conditional
-  unless $result.ok {
-      out::message("Installing python failed on #{$result.error_set.targets}")
-  }
+  unless $result.ok 
+      out::message("Installing python failed on #{$result.error_set.targets}"
+  
 
   # Set the python feature on all targets that successfully had python
   # installed, allowing the task to use the python version instead of shell.
